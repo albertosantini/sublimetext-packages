@@ -1,0 +1,10 @@
+{
+    "extensions":
+    [
+        ".Rprofile"
+    ],
+    "rulers":
+    [
+        80
+    ]
+}

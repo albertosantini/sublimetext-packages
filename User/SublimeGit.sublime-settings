@@ -1,0 +1,9 @@
+{
+    "git_executables": {
+        "git": ["C:\\My\\Programs\\Git\\cmd\\git.exe"]
+    },
+    "git_extensions": {
+        "git_flow": false,
+        "legit": false
+    }
+}

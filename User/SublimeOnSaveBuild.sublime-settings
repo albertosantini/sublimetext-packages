@@ -1,0 +1,4 @@
+{
+    "filename_filter": "\\.(js|json|jshintrc|sublime-[\\w]+)$",
+    "build_on_save": 1
+}
