@@ -1,6 +1,7 @@
 {
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Color Scheme - Default/iPlastic.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
 	"font_options":
 	[
 		"gray_antialias",
