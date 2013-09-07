@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"Open-Include",
 		"SublimeGit",
 		"SublimeOnSaveBuild"
 	]
