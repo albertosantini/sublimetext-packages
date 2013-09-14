@@ -1,4 +1,5 @@
 {
+    "git_commit_pedantic": true,
     "git_executables": {
         "git": ["C:\\My\\Programs\\Git\\cmd\\git.exe"]
     },
