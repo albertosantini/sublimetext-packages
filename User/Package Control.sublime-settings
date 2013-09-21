@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"AngularJS",
 		"Open-Include",
 		"SublimeGit",
 		"SublimeOnSaveBuild"
