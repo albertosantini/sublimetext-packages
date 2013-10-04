@@ -1,7 +1,7 @@
 {
 	"installed_packages":
 	[
-        "EasyMotion",
+		"EasyMotion",
 		"Open-Include",
 		"SublimeGit",
 		"SublimeOnSaveBuild",
