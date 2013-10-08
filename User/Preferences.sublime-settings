@@ -13,6 +13,7 @@
 	[
 		"Vintage"
 	],
+	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": false,
 	"soda_folder_icons": true,
 	"theme": "Soda Light 3.sublime-theme",
