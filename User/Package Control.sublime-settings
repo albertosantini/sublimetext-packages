@@ -2,8 +2,8 @@
 	"installed_packages":
 	[
 		"EasyMotion",
+		"Git",
 		"Open-Include",
-		"SublimeGit",
 		"SublimeOnSaveBuild",
 		"Theme - Soda"
 	]
