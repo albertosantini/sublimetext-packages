@@ -3,6 +3,11 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/Espresso Soda.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".idea",
+		".git"
+	],
 	"font_options":
 	[
 		"gray_antialias",
