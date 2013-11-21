@@ -1,7 +1,7 @@
 Sublime Text configuration
 ==========================
 
-This repository contains the configuration of Sublime Text editor.
+This repository contains the configuration of Sublime Text editor (ST3).
 
 Note
 ----
