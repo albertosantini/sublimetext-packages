@@ -1,4 +1,6 @@
 import sublime
+import sublime_plugin
+import re
 import Default
 
 class ExecCommand(Default.exec.ExecCommand):
@@ -26,3 +28,11 @@ class ExecCommand(Default.exec.ExecCommand):
                     sublime.DRAW_NO_OUTLINE |
                     sublime.DRAW_SQUIGGLY_UNDERLINE |
                     sublime.HIDE_ON_MINIMAP)
+
+class SublimeOnSaveBuild(sublime_plugin.EventListener):
+    def on_post_save(self, view):
+        filename_filter = "\\.(js|json|jshintrc|sublime-[\\w]+)$"
+        if not re.search(filename_filter, view.file_name()):
+            return
+
+        view.window().run_command('build')
