@@ -7,15 +7,15 @@ class ExecCommand(Default.exec.ExecCommand):
     def on_finished(self, proc):
         super(ExecCommand, self).on_finished(proc)
 
+        view = self.window.active_view()
         errs = self.output_view.find_all_results()
+        
         if len(errs) == 0:
             self.window.run_command("hide_panel", {"cancel": True})
-            view = self.window.active_view()
             view.erase_regions("exec_errors")
 
         else:
             regions = []
-            view = self.window.active_view()
 
             for err in errs:
                 text_point = view.text_point(int(err[1]) - 1, int(err[2]) - 1)
