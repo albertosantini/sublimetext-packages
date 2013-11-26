@@ -12,7 +12,11 @@ I have been using the following plugins:
 - [Open-Include](https://github.com/SublimeText/Open-Include)
 - [Theme - Soda](http://buymeasoda.github.com/soda-theme/)
 
-Then in `User/z.py` I add a few customization.
+Then in `User/z.py` I added a few customizations:
+
+- Build on save for a few files.
+- Close build results view if there are not errors.
+- Show a dot icon in the gutter area if there is an error.
 
 Note
 ----
