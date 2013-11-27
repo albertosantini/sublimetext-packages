@@ -37,4 +37,4 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
         if not re.search(filename_filter, view.file_name()):
             return
 
-        view.window().run_command('build')
+        view.window().run_command("build")
