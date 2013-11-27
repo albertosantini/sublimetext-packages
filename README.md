@@ -18,6 +18,8 @@ Then in `User/z.py` I added a few customizations:
 - Close build results view if there are not errors.
 - Show a dot icon in the gutter area if there is an error.
 
+Basically I have been programming in JavaScript (in Node.js and in the browers), HTML, CSS and R. Indeed there are some build setups and customizations (rulers, extensions, etc.) for those languages.
+
 Note
 ----
 
