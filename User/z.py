@@ -1,15 +1,17 @@
 import sublime
 import sublime_plugin
 import re
-import Default
 
-class ExecCommand(Default.exec.ExecCommand):
+import importlib
+defaultExec = importlib.import_module("Default.exec")
+
+class ExecCommand(defaultExec.ExecCommand):
     def on_finished(self, proc):
         super(ExecCommand, self).on_finished(proc)
 
         view = self.window.active_view()
         errs = self.output_view.find_all_results()
-        
+
         if len(errs) == 0:
             self.window.run_command("hide_panel", {"cancel": True})
             view.erase_regions("exec_errors")
