@@ -12,7 +12,7 @@ class ExecCommand(defaultExec.ExecCommand):
         view = self.window.active_view()
         errs = self.output_view.find_all_results()
 
-        if len(errs) == 0:
+        if (len(errs) == 0 and proc.exit_code() == 0):
             self.window.run_command("hide_panel", {"cancel": True})
             view.erase_regions("exec_errors")
 
