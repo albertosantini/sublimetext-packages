@@ -20,7 +20,20 @@ class ExecCommand(defaultExec.ExecCommand):
             regions = []
 
             for err in errs:
-                text_point = view.text_point(int(err[1]) - 1, int(err[2]) - 1)
+                line = int(err[1]) - 1
+                line_begin = view.text_point(line, 0)
+                line_region = view.full_line(line_begin)
+                buf = view.substr(line_region)
+                tab_length = len(re.findall("\t", buf))
+                isSpacesIndentation = view.settings().get(
+                    "translate_tabs_to_spaces")
+                tab_size = 1
+                if (not isSpacesIndentation):
+                    tab_size = view.settings().get("tab_size")
+
+                col = int(err[2]) - 1 - (tab_size * tab_length) + tab_length
+
+                text_point = view.text_point(line, col)
                 region = view.word(text_point)
                 regions.append(region)
 
