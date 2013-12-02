@@ -1,8 +1,13 @@
 {
-	"selector": "source.js, source.json",
+    "selector": "source.js, source.json",
 
-	"cmd": ["jshint", "$file"],
-	"shell": true,
+    "cmd": ["jshint", "$file"],
+    "shell": true,
 
-	"file_regex": "^(.*): line (\\d+), col (\\d+), (.+)$"
+    "file_regex": "^(.*): line (\\d+), col (\\d+), (.+)$",
+
+    "windows":
+    {
+        "cmd": ["jshint.cmd", "$file"]
+    }
 }
