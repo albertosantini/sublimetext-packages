@@ -1,5 +1,10 @@
 {
     "selector": "source.r",
 
-    "cmd": ["C:\\My\\Programs\\R\\R-3.0.2\\bin\\x64\\Rscript", "$file"]
+    "cmd": ["Rscript", "$file"],
+
+    "windows":
+    {
+        "cmd": ["C:\\My\\Programs\\R\\R-3.0.2\\bin\\x64\\Rscript", "$file"]
+    }
 }
