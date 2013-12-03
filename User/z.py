@@ -20,19 +20,7 @@ class ExecCommand(defaultExec.ExecCommand):
             regions = []
 
             for err in errs:
-                line = int(err[1]) - 1
-                line_begin = view.text_point(line, 0)
-                line_region = view.full_line(line_begin)
-                buf = view.substr(line_region)
-                tab_length = len(re.findall("\t", buf))
-                isSpacesIndentation = view.settings().get(
-                    "translate_tabs_to_spaces")
-                tab_size = 1
-                if (not isSpacesIndentation):
-                    tab_size = view.settings().get("tab_size")
-
-                col = int(err[2]) - 1 - (tab_size * tab_length) + tab_length
-
+                line, col = self.getAdjustedLineColumn(err[1], err[2])
                 text_point = view.text_point(line, col)
                 region = view.word(text_point)
                 regions.append(region)
@@ -43,6 +31,20 @@ class ExecCommand(defaultExec.ExecCommand):
                     sublime.DRAW_NO_OUTLINE |
                     sublime.DRAW_SQUIGGLY_UNDERLINE |
                     sublime.HIDE_ON_MINIMAP)
+
+    def getAdjustedLineColumn(self, line, col):
+        line = int(line) - 1
+        view = self.window.active_view()
+        settings = view.settings()
+        line_begin = view.text_point(line, 0)
+        line_region = view.full_line(line_begin)
+        buf = view.substr(line_region)
+        tab_length = len(re.findall("\t", buf))
+        isSpacesIndentation = settings.get("translate_tabs_to_spaces")
+        tab_size = 1
+        if (not isSpacesIndentation):
+            tab_size = settings.get("tab_size")
+        return line, col - 1 - (tab_size * tab_length) + tab_length
 
 class SublimeOnSaveBuild(sublime_plugin.EventListener):
     def on_post_save(self, view):
