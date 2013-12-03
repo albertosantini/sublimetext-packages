@@ -44,7 +44,7 @@ class ExecCommand(defaultExec.ExecCommand):
         tab_size = 1
         if (not isSpacesIndentation):
             tab_size = settings.get("tab_size")
-        return line, col - 1 - (tab_size * tab_length) + tab_length
+        return line, int(col) - 1 - (tab_size * tab_length) + tab_length
 
 class SublimeOnSaveBuild(sublime_plugin.EventListener):
     def on_post_save(self, view):
