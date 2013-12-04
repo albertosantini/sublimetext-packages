@@ -20,9 +20,7 @@ class ExecCommand(defaultExec.ExecCommand):
             regions = []
 
             for err in errs:
-                line, col = self.getAdjustedLineColumn(err[1], err[2])
-                text_point = view.text_point(line, col)
-                region = view.word(text_point)
+                region = self.getAdjustedRegion(err[1], err[2])
                 regions.append(region)
 
             view.add_regions("exec_errors", regions, "keyword", "dot",
@@ -32,7 +30,7 @@ class ExecCommand(defaultExec.ExecCommand):
                     sublime.DRAW_SQUIGGLY_UNDERLINE |
                     sublime.HIDE_ON_MINIMAP)
 
-    def getAdjustedLineColumn(self, line, col):
+    def getAdjustedRegion(self, line, col):
         line = int(line) - 1
         view = self.window.active_view()
         settings = view.settings()
@@ -44,7 +42,12 @@ class ExecCommand(defaultExec.ExecCommand):
         tab_size = 1
         if (not isSpacesIndentation):
             tab_size = settings.get("tab_size")
-        return line, int(col) - 1 - (tab_size * tab_length) + tab_length
+        col = int(col) - 1 - (tab_size * tab_length) + tab_length
+        text_point = view.text_point(line, col)
+        region = view.word(text_point)
+        region.b = text_point
+
+        return region
 
 class SublimeOnSaveBuild(sublime_plugin.EventListener):
     def on_post_save(self, view):
@@ -53,3 +56,35 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
             return
 
         view.window().run_command("build")
+
+class GotoError(sublime_plugin.TextCommand):
+    def run(self, edit, direction):
+        err_regions = self.view.get_regions("exec_errors")
+        if (len(err_regions) == 0):
+            return
+        caret = self.view.sel()[0].begin()
+
+        if (direction == "prev"):
+            err_regions = reversed(err_regions)
+
+        for index, err_region in enumerate(err_regions):
+            err_region_end = err_region.end()
+            if ((direction == "next" and (caret < err_region_end)) or
+                (direction == "prev" and (caret > err_region_end))):
+                self.setCaret(err_region_end)
+                break
+
+    def setCaret(self, position):
+        self.view.sel().clear()
+        self.view.sel().add(sublime.Region(position, position))
+        self.view.show_at_center(position)
+
+class GotoNextError(GotoError):
+    def run(self, edit):
+        self.view.window().run_command("next_result")
+        super(GotoNextError, self).run(edit, "next")
+
+class GotoPrevError(GotoError):
+    def run(self, edit):
+        self.view.window().run_command("prev_result")
+        super(GotoPrevError, self).run(edit, "prev")
