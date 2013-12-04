@@ -1,8 +1,8 @@
 [
-    {
-        "keys": ["ctrl+shift+g"],
-        "command": "expand_selection_to_paragraph"
-    },
+    { "keys": ["ctrl+shift+g"], "command": "expand_selection_to_paragraph" },
+
+    { "keys": ["f4"], "command": "goto_next_error" },
+    { "keys": ["shift+f4"], "command": "goto_prev_error" },
 
     {
         "keys": ["ctrl+,", "<character>"],
