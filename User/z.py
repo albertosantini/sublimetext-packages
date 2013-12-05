@@ -9,6 +9,8 @@ output_errors = {}
 
 class ExecCommand(defaultExec.ExecCommand):
     def on_finished(self, proc):
+        global output_errors
+
         super(ExecCommand, self).on_finished(proc)
 
         view = self.window.active_view()
@@ -24,7 +26,6 @@ class ExecCommand(defaultExec.ExecCommand):
             del output_errors[key]
 
         else:
-            global output_errors
             output_errors[key] = self.getErrors(output_view)
 
             regions = output_errors[key]["error_regions"]
