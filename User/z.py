@@ -118,16 +118,17 @@ class GotoError(sublime_plugin.TextCommand):
             self.setCaret(err_regions[0].end())
 
     def setCaret(self, position):
-        sublime.active_window().focus_view(self.view)
         self.view.sel().clear()
         self.view.sel().add(sublime.Region(position, position))
         self.view.show_at_center(position)
 
     def highlightBuildError(self, view, position):
-        # sublime.active_window().focus_view(view)
         view.sel().clear()
         view.sel().add(sublime.Region(position.begin(), position.end()))
         view.show_at_center(position.end())
+        sublime.active_window().run_command("hide_panel", {"cancel": True})
+        sublime.active_window().run_command("show_panel",
+            {"panel": "output.exec"})
 
 
 class GotoNextError(GotoError):
