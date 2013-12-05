@@ -16,7 +16,9 @@ Then in `User/z.py` I added a few customizations:
 
 - Build on save for a few files.
 - Close build results view if there are not errors.
-- Show a dot icon in the gutter area if there is an error.
+- Show a dot icon in the gutter area close to the error.
+- Draw an horizontal region close to the column (tabs-aware) of the error.
+- Wrap next and previous error commands and open the output panel.
 
 Basically I have been programming in JavaScript (in Node.js and in the browers), HTML, CSS and R. Indeed there are some build setups and customizations (rulers, extensions, etc.) for those languages.
 
