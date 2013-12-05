@@ -5,7 +5,7 @@ import re
 import importlib
 defaultExec = importlib.import_module("Default.exec")
 
-output_error_messages = []
+output_errors = []
 
 class ExecCommand(defaultExec.ExecCommand):
     def on_finished(self, proc):
@@ -23,8 +23,8 @@ class ExecCommand(defaultExec.ExecCommand):
         else:
             regions = []
 
-            global output_error_messages
-            output_error_messages = self.getErrorMessages(output_view)
+            global output_errors
+            output_errors = self.getErrors(output_view)
 
             for err in errs:
                 region = self.getAdjustedRegion(err[1], err[2])
@@ -56,8 +56,12 @@ class ExecCommand(defaultExec.ExecCommand):
 
         return region
 
-    def getErrorMessages(self, view):
-        view_error_messages = []
+    def getErrors(self, view):
+        view_errors = {
+            "output_view": view,
+            "regions": [],
+            "messages": []
+        }
         file_regex = str(view.settings().get("result_file_regex"))
         group_regex = 3
         err_regions = view.find_all(file_regex)
@@ -65,9 +69,10 @@ class ExecCommand(defaultExec.ExecCommand):
             buf = str(view.substr(err_region))
             error = re.findall(file_regex, buf)[0]
             message = error[group_regex]
-            view_error_messages.append(message)
+            view_errors["messages"].append(message);
+            view_errors["regions"].append(err_region);
 
-        return view_error_messages
+        return view_errors
 
 class SublimeOnSaveBuild(sublime_plugin.EventListener):
     def on_post_save(self, view):
@@ -79,44 +84,51 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
 
 class GotoError(sublime_plugin.TextCommand):
     def run(self, edit, direction):
-        global output_error_messages
+        global output_errors
 
-        if (len(output_error_messages) == 0):
+        if (len(output_errors) == 0):
             return
 
-        err_messages = output_error_messages
+        err_output_view = output_errors["output_view"]
+        err_output_messages = output_errors["messages"]
+        err_output_regions = output_errors["regions"]
         err_regions = self.view.get_regions("exec_errors")
         err_len = len(err_regions)
 
         if (err_len == 0):
             return
 
-
         if (direction == "prev"):
-            err_messages = [item for item in reversed(err_messages)]
-            err_regions = [item for item in reversed(err_regions)]
+            err_output_messages = [x for x in reversed(err_output_messages)]
+            err_output_regions = [x for x in reversed(err_output_regions)]
+            err_regions = [x for x in reversed(err_regions)]
 
         caret = self.view.sel()[0].begin()
-        for index, err_region in enumerate(err_regions):
+        for i, err_region in enumerate(err_regions):
             err_region_end = err_region.end()
             if ((direction == "next" and (caret < err_region_end)) or
                 (direction == "prev" and (caret > err_region_end))):
+                self.highlightBuildError(err_output_view, err_output_regions[i])
+                sublime.status_message(err_output_messages[i])
                 self.setCaret(err_region_end)
-                sublime.status_message(err_messages[index])
                 break
-
-        err_last = err_regions[err_len - 1]
-        caret_new = self.view.sel()[0].begin()
-        if ((direction == "next" and (caret_new > err_last.end())) or
-            (direction == "prev" and (caret_new < err_last.end())) or
-            caret_new == caret):
+        else:
+            self.highlightBuildError(err_output_view, err_output_regions[0])
+            sublime.status_message(err_output_messages[0])
             self.setCaret(err_regions[0].end())
-            sublime.status_message(err_messages[0])
 
     def setCaret(self, position):
+        sublime.active_window().focus_view(self.view)
         self.view.sel().clear()
         self.view.sel().add(sublime.Region(position, position))
         self.view.show_at_center(position)
+
+    def highlightBuildError(self, view, position):
+        # sublime.active_window().focus_view(view)
+        view.sel().clear()
+        view.sel().add(sublime.Region(position.begin(), position.end()))
+        view.show_at_center(position.end())
+
 
 class GotoNextError(GotoError):
     def run(self, edit):
