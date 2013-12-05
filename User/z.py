@@ -61,7 +61,7 @@ class ExecCommand(defaultExec.ExecCommand):
         file_regex = str(view.settings().get("result_file_regex"))
         group_regex = 3
         err_regions = view.find_all(file_regex)
-        for index, err_region in enumerate(err_regions):
+        for err_region in err_regions:
             buf = str(view.substr(err_region))
             error = re.findall(file_regex, buf)[0]
             message = error[group_regex]
@@ -91,14 +91,12 @@ class GotoError(sublime_plugin.TextCommand):
         if (err_len == 0):
             return
 
-        caret = self.view.sel()[0].begin()
 
         if (direction == "prev"):
-            err_messages.reverse()
-            err_regions.reverse()
+            err_messages = [item for item in reversed(err_messages)]
+            err_regions = [item for item in reversed(err_regions)]
 
-        err_last = err_regions[err_len - 1]
-
+        caret = self.view.sel()[0].begin()
         for index, err_region in enumerate(err_regions):
             err_region_end = err_region.end()
             if ((direction == "next" and (caret < err_region_end)) or
@@ -107,6 +105,7 @@ class GotoError(sublime_plugin.TextCommand):
                 sublime.status_message(err_messages[index])
                 break
 
+        err_last = err_regions[err_len - 1]
         caret_new = self.view.sel()[0].begin()
         if ((direction == "next" and (caret_new > err_last.end())) or
             (direction == "prev" and (caret_new < err_last.end())) or
