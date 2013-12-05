@@ -29,10 +29,9 @@ class ExecCommand(defaultExec.ExecCommand):
 
             regions = output_errors[key]["error_regions"]
             view.add_regions("exec_errors", regions, "keyword", "dot",
-                    sublime.DRAW_EMPTY |
+                    sublime.DRAW_EMPTY_AS_OVERWRITE |
                     sublime.DRAW_NO_FILL |
                     sublime.DRAW_NO_OUTLINE |
-                    sublime.DRAW_SQUIGGLY_UNDERLINE |
                     sublime.HIDE_ON_MINIMAP)
 
     def getAdjustedRegion(self, line, col):
