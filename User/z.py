@@ -49,8 +49,7 @@ class ExecCommand(defaultExec.ExecCommand):
             tab_size = settings.get("tab_size")
         col = int(col) - 1 - (tab_size * tab_length) + tab_length
         text_point = view.text_point(line, col)
-        region = view.word(text_point)
-        region.b = text_point
+        region = sublime.Region(text_point, text_point)
 
         return region
 
@@ -103,9 +102,8 @@ class GotoError(sublime_plugin.TextCommand):
         error_regions = output_errors[key]["error_regions"]
         error_messages = output_errors[key]["error_messages"]
         output_regions = output_errors[key]["output_regions"]
-        err_len = len(error_regions)
 
-        if (err_len == 0):
+        if (len(error_regions) == 0):
             return
 
         if (direction == "prev"):
@@ -118,24 +116,25 @@ class GotoError(sublime_plugin.TextCommand):
             err_region_end = err_region.end()
             if ((direction == "next" and (caret < err_region_end)) or
                 (direction == "prev" and (caret > err_region_end))):
-                self.highlightBuildError(output_view, output_regions[i])
-                sublime.status_message(error_messages[i])
-                self.setCaret(err_region_end)
+                self.updateEditAndOutputView(output_view,
+                    error_regions[i], error_messages[i], output_regions[i])
                 break
         else:
-            self.highlightBuildError(output_view, output_regions[0])
-            sublime.status_message(error_messages[0])
-            self.setCaret(error_regions[0].end())
+            self.updateEditAndOutputView(output_view,
+                error_regions[0], error_messages[0], output_regions[0])
 
-    def setCaret(self, position):
-        self.view.sel().clear()
-        self.view.sel().add(sublime.Region(position, position))
-        self.view.show_at_center(position)
+    def updateEditAndOutputView(self, view, region, message, output):
+        self.highlightBuildError(view, output)
+        sublime.status_message(message)
+        self.setCaret(self.view, region)
 
-    def highlightBuildError(self, view, position):
+    def setCaret(self, view, position):
         view.sel().clear()
         view.sel().add(sublime.Region(position.begin(), position.end()))
         view.show_at_center(position.end())
+
+    def highlightBuildError(self, view, position):
+        self.setCaret(view, position)
         sublime.active_window().run_command("hide_panel", {"cancel": True})
         sublime.active_window().run_command("show_panel",
             {"panel": "output.exec"})
