@@ -93,11 +93,11 @@ class GotoError(sublime_plugin.TextCommand):
     def run(self, edit, direction):
         global output_errors
 
-        if (len(output_errors) == 0):
-            return
-
         key = sublime.active_window().active_view().file_name()
         key.replace("\\","/")
+
+        if (key not in output_errors):
+            return;
 
         output_view = output_errors[key]["view"]
         error_regions = output_errors[key]["error_regions"]
