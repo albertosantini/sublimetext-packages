@@ -14,13 +14,14 @@ I have been using the following plugins:
 
 Then in `User/z.py` I added a few customizations for the build system:
 
+- Extend Default.exec plugin.
 - Build on save for a few files.
 - Close build results view if there are not errors.
 - Show a dot icon in the gutter area close to the error.
 - Draw an horizontal region close to the column (tabs-aware) of the error.
 - Open finally the output panel.
 - Wrap around the end of the document for the next (previous) result.
-
+- The output panel content is refreshed on the next (previous) result command.
 
 The build system should contain a regex for filename, line, column and message error.
 
