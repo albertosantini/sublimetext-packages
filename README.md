@@ -20,6 +20,7 @@ Then in `User/z.py` I added a few customizations for the build system:
 - Show a dot icon in the gutter area close to the error.
 - Draw an horizontal region close to the column (tabs-aware) of the error.
 - Open finally the output panel.
+- Go to the results ordered by line number.
 - Wrap around the end of the document for the next (previous) result.
 - The output panel content is refreshed on the next (previous) result command.
 
