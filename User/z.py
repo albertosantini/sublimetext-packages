@@ -19,10 +19,11 @@ class ExecCommand(defaultExec.ExecCommand):
         key = sublime.active_window().active_view().file_name()
         key.replace("\\","/")
 
-        if (output_view.find_all_results() == 0 and proc.exit_code() == 0):
-            self.window.run_command("hide_panel", {"cancel": True})
+        if (len(output_view.find_all_results()) == 0 and proc.exit_code() == 0):
+            sublime.active_window().run_command("hide_panel", {"cancel": True})
             view.erase_regions("exec_errors")
-            del output_errors[key]
+            if (key in output_errors):
+                del output_errors[key]
 
         else:
             output_errors[key] = self.getErrors(output_view)
