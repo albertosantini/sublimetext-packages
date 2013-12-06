@@ -56,6 +56,7 @@ class ExecCommand(defaultExec.ExecCommand):
     def getErrors(self, view):
         view_errors = {
             "view": view,
+            "view_text": view.substr(sublime.Region(0, view.size())),
             "errors": [],
             "error_regions": [],
             "error_messages": [],
@@ -88,6 +89,11 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
 
         view.window().run_command("build")
 
+class ReplaceTextOutputView(sublime_plugin.TextCommand):
+    def run(self, edit, args):
+        self.view.replace(edit, sublime.Region(0, self.view.size()),
+            args["text"])
+
 class GotoError(sublime_plugin.TextCommand):
     def run(self, edit, direction):
         global output_errors
@@ -99,12 +105,16 @@ class GotoError(sublime_plugin.TextCommand):
             return;
 
         output_view = output_errors[key]["view"]
+        output_text = output_errors[key]["view_text"]
         error_regions = output_errors[key]["error_regions"]
         error_messages = output_errors[key]["error_messages"]
         output_regions = output_errors[key]["output_regions"]
 
         if (len(error_regions) == 0):
             return
+
+        output_view.run_command("replace_text_output_view",
+            {"args": {"text": output_text}})
 
         if (direction == "prev"):
             error_messages = [x for x in reversed(error_messages)]
