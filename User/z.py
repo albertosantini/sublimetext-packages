@@ -15,12 +15,11 @@ class ExecCommand(defaultExec.ExecCommand):
 
         view = self.window.active_view()
         output_view = self.output_view
-        errs = output_view.find_all_results()
 
         key = sublime.active_window().active_view().file_name()
         key.replace("\\","/")
 
-        if (len(errs) == 0 and proc.exit_code() == 0):
+        if (output_view.find_all_results() == 0 and proc.exit_code() == 0):
             self.window.run_command("hide_panel", {"cancel": True})
             view.erase_regions("exec_errors")
             del output_errors[key]
@@ -49,35 +48,39 @@ class ExecCommand(defaultExec.ExecCommand):
             tab_size = settings.get("tab_size")
         col = int(col) - 1 - (tab_size * tab_length) + tab_length
         text_point = view.text_point(line, col)
-        region = sublime.Region(text_point, text_point)
 
-        return region
+        return sublime.Region(text_point, text_point)
 
     def getErrors(self, view):
         view_errors = {
             "view": view,
             "view_text": view.substr(sublime.Region(0, view.size())),
-            "errors": [],
             "error_regions": [],
             "error_messages": [],
             "output_regions": []
         }
 
         file_regex = str(view.settings().get("result_file_regex"))
-        err_regions = view.find_all(file_regex)
-        for err_region in err_regions:
-            buf = str(view.substr(err_region))
+        if (file_regex == ""):
+            return view_errors
+
+        errors = []
+        output_regions = view.find_all(file_regex)
+        for output_region in output_regions:
+            buf = str(view.substr(output_region))
             error = re.findall(file_regex, buf)[0]
-            region = self.getAdjustedRegion(error[1], error[2])
-            message = error[3]
-            view_errors["errors"].append((region, message, err_region))
+            # filename = error[0]
+            line = error[1]
+            column = error[2]
+            error_message = error[3]
+            error_region = self.getAdjustedRegion(line, column)
+            errors.append((error_region, error_message, output_region))
 
-        view_errors["errors"] = sorted(view_errors["errors"])
-
-        for i, error in enumerate(view_errors["errors"]):
-            view_errors["error_regions"].append(view_errors["errors"][i][0])
-            view_errors["error_messages"].append(view_errors["errors"][i][1])
-            view_errors["output_regions"].append(view_errors["errors"][i][2])
+        errors = sorted(errors)
+        for i, error in enumerate(errors):
+            view_errors["error_regions"].append(errors[i][0])
+            view_errors["error_messages"].append(errors[i][1])
+            view_errors["output_regions"].append(errors[i][2])
 
         return view_errors
 
@@ -117,9 +120,9 @@ class GotoError(sublime_plugin.TextCommand):
             {"args": {"text": output_text}})
 
         if (direction == "prev"):
+            error_regions = [x for x in reversed(error_regions)]
             error_messages = [x for x in reversed(error_messages)]
             output_regions = [x for x in reversed(output_regions)]
-            error_regions = [x for x in reversed(error_regions)]
 
         caret = self.view.sel()[0].begin()
         for i, err_region in enumerate(error_regions):
