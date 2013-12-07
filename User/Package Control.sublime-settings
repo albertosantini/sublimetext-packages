@@ -6,6 +6,7 @@
 		"ExportHtml",
 		"Git",
 		"Open-Include",
+		"SublimeOnSaveBuild",
 		"Theme - Soda"
 	]
 }

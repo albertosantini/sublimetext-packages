@@ -85,14 +85,6 @@ class ExecCommand(defaultExec.ExecCommand):
 
         return view_errors
 
-class SublimeOnSaveBuild(sublime_plugin.EventListener):
-    def on_post_save(self, view):
-        filename_filter = "\\.(js|json|jshintrc|sublime-[\\w]+)$"
-        if not re.search(filename_filter, view.file_name()):
-            return
-
-        view.window().run_command("build")
-
 class ReplaceTextOutputView(sublime_plugin.TextCommand):
     def run(self, edit, args):
         self.view.replace(edit, sublime.Region(0, self.view.size()),
