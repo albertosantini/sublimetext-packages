@@ -18,6 +18,7 @@
 	[
 		"Vintage"
 	],
+	"minimap_scroll_to_clicked_text": true,
 	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": true,
 	"soda_folder_icons": true,
