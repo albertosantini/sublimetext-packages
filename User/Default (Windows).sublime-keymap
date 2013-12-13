@@ -23,5 +23,27 @@
         "keys": ["ctrl+shift+,", "enter"],
         "command": "easy_motion",
         "args": {"select_text": true, "character": "enter"}
+    },
+
+    {
+        "keys": ["alt+up"],
+        "command": "move",
+        "args": {"by": "stops", "empty_line": true, "forward": false}
+    },
+    {
+        "keys": ["alt+down"],
+        "command": "move",
+        "args": {"by": "stops", "empty_line": true, "forward": true}
+    },
+    {   "keys": ["shift+alt+up"],
+        "command": "move",
+        "args": {"by": "stops", "empty_line": true, "forward": false,
+            "extend": true}
+    },
+    {
+        "keys": ["shift+alt+down"],
+        "command": "move",
+        "args": {"by": "stops", "empty_line": true, "forward": true,
+            "extend": true}
     }
 ]
