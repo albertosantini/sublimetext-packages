@@ -17,13 +17,25 @@ Then in `User/z.py`, if it exists, I added a few customizations.
 
 Basically I have been programming in JavaScript (in Node.js and in the browers), HTML, CSS and R. Indeed there are some build setups and customizations (rulers, extensions, etc.) for those languages.
 
-Note
-----
+Installation
+------------
 
 You should clone the repository in `Data/Packages` overwriting the folder.
 
-Don't forget to install [Package Control](https://sublime.wbond.net/), after
+`$ cd Data/Packages`
+
+```
+git init
+git remote add origin https://github.com/albertosantini/sublimetext-packages.git
+git fetch
+git checkout -t origin/master
+```
+
+Don't forget to install [Package Control](https://sublime.wbond.net/installation), after
 cloning the repo, and to restart the editor: the plugins will be installed
 automatically.
+
+Notes
+-----
 
 Read also the note about the syncing: [Package Control Syncing](https://sublime.wbond.net/docs/syncing).
