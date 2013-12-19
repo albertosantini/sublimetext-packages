@@ -10,6 +10,7 @@ I have been using the following plugins:
 - [EasyMotion](https://github.com/tednaleid/sublime-EasyMotion)
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
+- [Open-Include](https://github.com/SublimeText/Open-Include)
 - [Theme - Soda](http://buymeasoda.github.com/soda-theme/)
 
 Then in `User/z.py`, if it exists, I added a few customizations.
