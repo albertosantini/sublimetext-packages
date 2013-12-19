@@ -10,7 +10,6 @@ I have been using the following plugins:
 - [EasyMotion](https://github.com/tednaleid/sublime-EasyMotion)
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
-- [Open-Include](https://github.com/SublimeText/Open-Include)
 - [Theme - Soda](http://buymeasoda.github.com/soda-theme/)
 
 Then in `User/z.py`, if it exists, I added a few customizations.
@@ -20,7 +19,7 @@ Basically I have been programming in JavaScript (in Node.js and in the browers),
 Installation
 ------------
 
-Install [Package Control](https://sublime.wbond.net/installation).
+Install [Package Control](https://sublime.wbond.net/installation) and stop the editor.
 
 Then you should clone the repository in `Data/Packages` overwriting the folder.
 
@@ -34,6 +33,7 @@ git checkout -t origin/master
 ```
 
 Restart the editor and the plugins will be installed automatically.
+Maybe during the installation of the theme it is displayed an error: restart the editor again.
 
 Notes
 -----
