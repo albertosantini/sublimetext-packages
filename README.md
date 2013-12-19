@@ -20,7 +20,9 @@ Basically I have been programming in JavaScript (in Node.js and in the browers),
 Installation
 ------------
 
-You should clone the repository in `Data/Packages` overwriting the folder.
+Install [Package Control](https://sublime.wbond.net/installation).
+
+Then you should clone the repository in `Data/Packages` overwriting the folder.
 
 `$ cd Data/Packages`
 
@@ -31,9 +33,7 @@ git fetch
 git checkout -t origin/master
 ```
 
-Don't forget to install [Package Control](https://sublime.wbond.net/installation), after
-cloning the repo, and to restart the editor: the plugins will be installed
-automatically.
+Restart the editor and the plugins will be installed automatically.
 
 Notes
 -----
