@@ -20,21 +20,29 @@ Basically I have been programming in JavaScript (in Node.js and in the browers),
 Installation
 ------------
 
-Install [Package Control](https://sublime.wbond.net/installation) and stop the editor.
+Starting from a fresh ST installation, install [Package Control](https://sublime.wbond.net/installation) and quit the editor.
 
-Then you should clone the repository in `Data/Packages` overwriting the folder.
+Use the link of your forked repo in the commands below (or you may use the mine). 
 
-`$ cd Data/Packages`
+Then you should clone the repository  in `Data/Packages`.
 
 ```
-git init
-git remote add origin https://github.com/albertosantini/sublimetext-packages.git
-git fetch
-git checkout -t origin/master
+$ cd Data/Packages
+$ git init
+$ git remote add origin https://github.com/albertosantini/sublimetext-packages.git
+$ git fetch
+$ git checkout -t origin/master
 ```
 
-Restart the editor and the plugins will be installed automatically.
-Maybe during the installation of the theme it is displayed an error: restart the editor again.
+There is another approach.
+
+```
+$ cd Data
+$ rm -rf Packages
+$ git clone  https://github.com/albertosantini/sublimetext-packages.git Packages
+```
+
+Restart the editor and the plugins will be installed automatically. During the installation of the plugins a few errors are displayed. It is normal. When the plugins installation is ended (see the console view), you need to restart the editor again.
 
 Notes
 -----
