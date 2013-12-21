@@ -1,8 +1,8 @@
 {
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"caret_extra_top": 1,
 	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
 	"caret_extra_width": 1,
 	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
