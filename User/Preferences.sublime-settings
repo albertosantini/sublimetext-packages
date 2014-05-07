@@ -24,7 +24,6 @@
 	"minimap_scroll_to_clicked_text": true,
 	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": true,
-	"soda_folder_icons": true,
 	"theme": "Soda Light 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
