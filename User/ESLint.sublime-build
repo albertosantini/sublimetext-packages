@@ -1,5 +1,5 @@
 {
-    "selector": "source.js, source.json",
+    "selector": "source.js",
 
     "cmd": ["eslint", "--format", "compact", "$file"],
     "shell": true,
@@ -9,5 +9,10 @@
     "windows":
     {
         "cmd": ["eslint.cmd", "--format", "compact", "$file"]
+    },
+
+    "env":
+    {
+        "ST_BUILD_ADJUST_COLUMNERROR": "1"
     }
 }
