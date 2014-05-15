@@ -6,13 +6,11 @@ This repository contains the configuration of Sublime Text editor (ST3).
 I have been using the following plugins:
 
 - [Build Next](https://github.com/albertosantini/sublimetext-buildnext)
-- [Dracula Color Scheme](http://zenorocha.github.io/dracula-theme/)
 - [EasyMotion](https://github.com/tednaleid/sublime-EasyMotion)
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
 - [JavaScript Next](https://github.com/Benvie/JavaScriptNext.tmLanguage)
 - [Open-Include](https://github.com/SublimeText/Open-Include)
-- [Theme - Soda](http://buymeasoda.github.com/soda-theme/)
 
 Then in `User/z.py`, if it exists, I added a few customizations.
 
