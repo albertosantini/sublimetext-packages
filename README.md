@@ -38,7 +38,7 @@ There is another approach.
 ```
 $ cd Data
 $ rm -rf Packages
-$ git clone git@github.com:albertosantini/sublimetext-packages.git
+$ git clone git@github.com:albertosantini/sublimetext-packages.git Packages
 ```
 
 Restart the editor and the plugins will be installed automatically. During the installation of the plugins a few errors are displayed. It is normal. When the plugins installation is ended (see the console view), you need to restart the editor again.
