@@ -1,6 +1,8 @@
 <snippet>
-    <content><![CDATA[function ($1) {${0:$TM_SELECTED_TEXT}}]]></content>
-    <tabTrigger>f</tabTrigger>
+    <content><![CDATA[function ${1:function_name} (${2:argument}) {
+	${0:$TM_SELECTED_TEXT}
+}]]></content>
+    <tabTrigger>fun</tabTrigger>
     <scope>source.js</scope>
-    <description>Anonymous Function</description>
+    <description>Function</description>
 </snippet>
