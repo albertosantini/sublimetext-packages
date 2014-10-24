@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[${1:function_name} <- function(${2:argument}) {
+	${0:$TM_SELECTED_TEXT}
+}]]></content>
+    <tabTrigger>fun</tabTrigger>
+    <scope>source.r</scope>
+    <description>My Function</description>
+</snippet>
