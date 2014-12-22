@@ -1,4 +1,10 @@
 {
+	"install_prereleases": true,
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"Build Next",
@@ -7,6 +13,11 @@
 		"Git",
 		"JavaScriptNext - ES6 Syntax",
 		"Open-Include",
+		"Package Control",
 		"SublimeOnSaveBuild"
+	],
+	"repositories":
+	[
+		"https://sublime.wbond.net/prerelease/packages.json"
 	]
 }
