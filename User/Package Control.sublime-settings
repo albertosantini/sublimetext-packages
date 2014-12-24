@@ -1,5 +1,7 @@
 {
-	"install_prereleases": true,
+	"in_process_packages":
+	[
+	],
 	"installed_dependencies":
 	[
 		"0_package_control_loader",
@@ -15,9 +17,5 @@
 		"Open-Include",
 		"Package Control",
 		"SublimeOnSaveBuild"
-	],
-	"repositories":
-	[
-		"https://sublime.wbond.net/prerelease/packages.json"
 	]
 }
