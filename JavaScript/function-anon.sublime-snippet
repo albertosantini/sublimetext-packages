@@ -2,5 +2,5 @@
     <content><![CDATA[function ($1) {${0:$TM_SELECTED_TEXT}}]]></content>
     <tabTrigger>f</tabTrigger>
     <scope>source.js</scope>
-    <description>Anonymous Function</description>
+    <description>My Anonymous Function</description>
 </snippet>
