@@ -1,5 +1,10 @@
 {
     "selector": "source.r",
 
-    "cmd": ["Rscript", "$file"]
+    "cmd": ["Rscript", "$file"],
+
+    "env":
+    {
+        "ST_BUILD_SHOW_OUTPUTVIEW": "true"
+    }
 }
