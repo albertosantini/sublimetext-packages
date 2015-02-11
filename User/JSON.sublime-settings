@@ -1,8 +1,7 @@
 {
 	"extensions":
 	[
-		".jshintrc",
-        ".eslintrc"
+		".jshintrc"
 	],
     "rulers":
     [
