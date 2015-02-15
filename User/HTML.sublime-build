@@ -4,13 +4,5 @@
     "cmd": ["tidy", "-e", "-q", "$file"],
     "shell": true,
 
-    "file_regex": "(^[ ]*)line (\\d+) column (\\d+) - (.+)$",
-
-    "variants": [
-        {
-            "cmd": ["cmd.exe", "/c", "$file"],
-            "shell": true,
-            "name": "Open browser"
-        }
-    ]
+    "file_regex": "(^[ ]*)line (\\d+) column (\\d+) - (.+)$"
 }
