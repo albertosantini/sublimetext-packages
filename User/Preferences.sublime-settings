@@ -9,7 +9,8 @@
 	"folder_exclude_patterns":
 	[
 		".idea",
-		".git"
+		".git",
+		"node_modules"
 	],
 	"font_options":
 	[
