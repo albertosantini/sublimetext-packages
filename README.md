@@ -11,10 +11,13 @@ I have been using the following plugins:
 - [Git](https://github.com/kemayo/sublime-text-git)
 - [JavaScript Next](https://github.com/Benvie/JavaScriptNext.tmLanguage)
 - [Open-Include](https://github.com/SublimeText/Open-Include)
+- [WakaTime](https://github.com/wakatime/sublime-wakatime)
 
 Then in `User/z.py`, if it exists, I added a few customizations.
 
-Basically I have been programming in JavaScript (in Node.js and in the browers), HTML, CSS and R. Indeed there are some build setups and customizations (rulers, extensions, etc.) for those languages.
+Basically I have been programming in JavaScript (in Node.js / io.js and in the
+browers), HTML, CSS and R. Indeed there are some build setups and customizations
+(rulers, extensions, etc.) for those languages.
 
 Installation
 ------------
