@@ -1,10 +1,6 @@
 {
-	"extensions":
+	"rulers":
 	[
-		".jshintrc"
-	],
-    "rulers":
-    [
-        80
-    ]
+		80
+	]
 }
