@@ -6,7 +6,6 @@ This repository contains the configuration of Sublime Text editor (ST3).
 I have been using the following plugins:
 
 - [Build Next](https://github.com/albertosantini/sublimetext-buildnext)
-- [EasyMotion](https://github.com/tednaleid/sublime-EasyMotion)
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
 - [SublimeOnSaveBuild](https://github.com/alexnj/SublimeOnSaveBuild)
