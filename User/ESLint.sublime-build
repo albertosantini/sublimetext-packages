@@ -11,10 +11,5 @@
         "cmd": ["eslint.cmd", "--format", "compact", "$file"]
     },
 
-    "env":
-    {
-        "ST_BUILD_ADJUST_COLUMNERROR": "1"
-    },
-
     "quiet": true
 }
