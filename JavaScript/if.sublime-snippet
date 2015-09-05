@@ -1,5 +1,5 @@
 <snippet>
-    <content><![CDATA[if (${1:true}) {
+    <content><![CDATA[if (${1:!err}) {
     ${0:$TM_SELECTED_TEXT}
 }]]></content>
     <tabTrigger>if</tabTrigger>
