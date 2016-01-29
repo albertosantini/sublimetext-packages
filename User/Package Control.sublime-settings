@@ -9,7 +9,6 @@
 		"ExportHtml",
 		"Git",
 		"Package Control",
-		"SublimeOnSaveBuild",
-		"WakaTime"
+		"SublimeOnSaveBuild"
 	]
 }
