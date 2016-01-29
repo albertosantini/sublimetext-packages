@@ -9,7 +9,6 @@ I have been using the following plugins:
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
 - [SublimeOnSaveBuild](https://github.com/alexnj/SublimeOnSaveBuild)
-- [WakaTime](https://github.com/wakatime/sublime-wakatime)
 
 Eventually `User/z.py` contains temporary customizations.
 
