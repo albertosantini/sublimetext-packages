@@ -5,10 +5,10 @@
 	],
 	"installed_packages":
 	[
-		"Build Next",
 		"ExportHtml",
 		"Git",
 		"Package Control",
-		"SublimeOnSaveBuild"
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint"
 	]
 }
