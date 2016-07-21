@@ -1,8 +1,0 @@
-{
-    "selector": "text.html.basic",
-
-    "cmd": ["tidy", "-e", "-q", "$file"],
-    "shell": true,
-
-    "file_regex": "(^[ ]*)line (\\d+) column (\\d+) - (.+)$"
-}
