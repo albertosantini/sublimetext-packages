@@ -5,10 +5,10 @@ This repository contains the configuration of Sublime Text editor (ST3).
 
 I have been using the following plugins:
 
-- [Build Next](https://github.com/albertosantini/sublimetext-buildnext)
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
-- [SublimeOnSaveBuild](https://github.com/alexnj/SublimeOnSaveBuild)
+- [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3)
+- [SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint)
 
 Eventually `User/z.py` contains temporary customizations.
 
