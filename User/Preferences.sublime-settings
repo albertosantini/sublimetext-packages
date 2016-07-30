@@ -13,6 +13,7 @@
 	],
 	"font_options":
 	[
+		"directwrite",
 		"gray_antialias",
 		"subpixel_antialias"
 	],
