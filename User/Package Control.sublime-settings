@@ -7,7 +7,6 @@
 	[
 		"ExportHtml",
 		"Git",
-		"Package Control",
-		"SublimeOnSaveBuild"
+		"Package Control"
 	]
 }
