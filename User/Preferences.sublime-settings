@@ -26,6 +26,7 @@
 	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": true,
 	"show_encoding": true,
+	"show_errors_inline": false,
 	"show_line_endings": true,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true

@@ -7,8 +7,7 @@ I have been using the following plugins:
 
 - [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
-- [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3)
-- [SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint)
+- [SublimeOnSaveBuild](https://github.com/alexnj/SublimeOnSaveBuild)
 
 Eventually `User/z.py` contains temporary customizations.
 

@@ -8,7 +8,6 @@
 		"ExportHtml",
 		"Git",
 		"Package Control",
-		"SublimeLinter",
-		"SublimeLinter-contrib-eslint"
+		"SublimeOnSaveBuild"
 	]
 }

@@ -1,0 +1,15 @@
+{
+    "selector": "source.js",
+
+    "cmd": ["eslint", "--format", "compact", "$file"],
+    "shell": true,
+
+    "file_regex": "^(.*): line (\\d+), col (\\d+), (.+)$",
+
+    "windows":
+    {
+        "cmd": ["eslint.cmd", "--format", "compact", "$file"]
+    },
+
+    "quiet": true
+}
