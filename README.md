@@ -5,13 +5,11 @@ This repository contains the configuration of Sublime Text editor (ST3).
 
 I have been using the following plugins:
 
-- [ExportHtml](https://github.com/facelessuser/ExportHtml)
 - [Git](https://github.com/kemayo/sublime-text-git)
-- [SublimeOnSaveBuild](https://github.com/alexnj/SublimeOnSaveBuild)
 
-Eventually `User/z.py` contains temporary customizations.
+Eventually `User/z.py` contains a few customizations.
 
-Basically I have been programming in JavaScript (in Node.js / io.js and in the
+Basically I have been programming in JavaScript (in Node.js and in the
 browers), HTML, CSS and R. Indeed there are some build setups and customizations
 (rulers, extensions, etc.) for those languages.
 
