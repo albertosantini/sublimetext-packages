@@ -9,9 +9,7 @@ I have been using the following plugins:
 
 Eventually `User/z.py` contains a few customizations.
 
-Basically I have been programming in JavaScript (in Node.js and in the
-browers), HTML, CSS and R. Indeed there are some build setups and customizations
-(rulers, extensions, etc.) for those languages.
+Basically I have been mainly programming in JavaScript and R.
 
 Installation
 ------------
@@ -30,7 +28,7 @@ $ git fetch
 $ git checkout -t origin/master
 ```
 
-There is another approach.
+Alternate approach.
 
 ```
 $ cd Data
