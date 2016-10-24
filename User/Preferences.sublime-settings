@@ -25,7 +25,7 @@
 	"minimap_scroll_to_clicked_text": true,
 	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": true,
-        "show_definitions": false,		
+    "show_definitions": false,		
 	"show_encoding": true,
 	"show_errors_inline": false,
 	"show_line_endings": true,
