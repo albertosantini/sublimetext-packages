@@ -26,4 +26,3 @@ class ExecCommand(Default.exec.ExecCommand):
             self.window.run_command("show_panel", {"panel": "output.exec"})
         else:
             self.window.run_command("hide_panel", {"panel": "output.exec"})
-
