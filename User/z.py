@@ -41,13 +41,7 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
                 node_modules_bin_path = self.rev_parse_bin_path(cwd)
 
     def rev_parse_bin_path(self, cwd):
-
-        """
-        Search parent directories for package.json.
-        Starting at the current working directory. Go up one directory
-        at a time checking if that directory contains a package.json
-        file. If it does, return that directory.
-        """
+        """Search parent directories until package.json."""
 
         name = "package.json"
         package_path = path.normpath(path.join(cwd, name))
@@ -79,6 +73,7 @@ class ExecCommand(Default.exec.ExecCommand):
         """Run the text command."""
 
         global node_modules_bin_path
+        cmd[0] = node_modules_bin_path + cmd[0]
 
         super(ExecCommand, self).run(cmd, shell_cmd,
                                      file_regex, line_regex,
