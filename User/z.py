@@ -1,6 +1,5 @@
 """Custom settings for Sublime Text."""
 
-import sublime
 import sublime_plugin
 import re
 import Default
@@ -9,7 +8,9 @@ from os import path
 
 node_modules_bin_path = None
 
+
 class SublimeOnSaveBuild(sublime_plugin.EventListener):
+
     """Build the view on save if the view is a js file."""
 
     def __init__(self):
@@ -37,9 +38,10 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
             cwd = path.dirname(curr_file)
 
             if cwd:
-                node_modules_bin_path = self.rev_parse_node_modules_bin_path(cwd)
+                node_modules_bin_path = self.rev_parse_bin_path(cwd)
 
-    def rev_parse_node_modules_bin_path(self, cwd):
+    def rev_parse_bin_path(self, cwd):
+
         """
         Search parent directories for package.json.
         Starting at the current working directory. Go up one directory
@@ -60,10 +62,11 @@ class SublimeOnSaveBuild(sublime_plugin.EventListener):
         if parent == "/" or parent == cwd:
             return None
 
-        return self.rev_parse_node_modules_bin_path(parent)
+        return self.rev_parse_bin_path(parent)
 
 
 class ExecCommand(Default.exec.ExecCommand):
+
     """Extend exec command using local eslint."""
 
     def run(self, cmd=None, shell_cmd=None,
