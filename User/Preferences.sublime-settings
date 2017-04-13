@@ -1,21 +1,12 @@
 {
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
-	"caret_extra_bottom": 1,
-	"caret_extra_top": 1,
-	"caret_extra_width": 1,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
 		".git",
 		"node_modules"
-	],
-	"font_options":
-	[
-		"directwrite",
-		"gray_antialias",
-		"subpixel_antialias"
 	],
 	"font_size": 10,
 	"ignored_packages":
@@ -29,6 +20,7 @@
 	"show_encoding": true,
 	"show_errors_inline": false,
 	"show_line_endings": true,
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
