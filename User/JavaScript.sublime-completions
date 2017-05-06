@@ -1,0 +1,9 @@
+{
+   "scope": "source.js",
+
+   "completions":
+   [
+      { "trigger": "use", "contents": "\"use strict\";" },
+      { "trigger": "con", "contents": "console.log(${0:$TM_SELECTED_TEXT});" }
+   ]
+}
