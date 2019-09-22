@@ -1,6 +1,8 @@
 Sublime Text configuration
 ==========================
 
+![](https://github.com/albertosantini/sublimetext-packages/workflows/CI/badge.svg)
+
 This repository contains the configuration of Sublime Text editor (ST3).
 
 I have been using the following plugins:
